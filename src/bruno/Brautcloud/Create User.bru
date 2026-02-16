@@ -1,0 +1,30 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "user-1234255",
+    "lastName": "Schmidt",
+    "firstNameCoupleOne": "Anna",
+    "firstNameCoupleTwo": "Michael",
+    "created_at": "2025-02-17T10:30:00",
+    "email": "anna.michael@example.com",
+    "emailVerified": false,
+    "password": "securePassword123!"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
