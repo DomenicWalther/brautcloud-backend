@@ -1,0 +1,31 @@
+meta {
+  name: Events::CreateEvent
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/events
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": "event-1215151123",
+    "user_id": "user-1234255",
+    "event_name": "Anna & Michael",
+    "event_location": "Eichenfürst Marktheidenfeld",
+    "event_date": "2025-06-06T14:00:00",
+    "email": "anna.michael@example.com",
+    "password": "secureEventPassword123!",
+    "qr_code": "QR-CODE-PLACEHOLDER",
+    "created_at": "2025-02-17T10:30:00"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
