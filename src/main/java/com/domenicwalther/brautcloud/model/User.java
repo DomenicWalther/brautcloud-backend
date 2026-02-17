@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -12,7 +13,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     private String lastName;
 
@@ -26,4 +27,7 @@ public class User {
     private String email;
     private boolean emailVerified;
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Event> events;
 }
