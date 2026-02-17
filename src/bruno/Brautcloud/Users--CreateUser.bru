@@ -12,14 +12,14 @@ post {
 
 body:json {
   {
-    "id": "user-1234255",
-    "lastName": "Schmidt",
-    "firstNameCoupleOne": "Anna",
-    "firstNameCoupleTwo": "Michael",
-    "created_at": "2025-02-17T10:30:00",
-    "email": "anna.michael@example.com",
+    "id": "{{$randomUUID}}",
+    "lastName": "{{$randomLastName}}",
+    "firstNameCoupleOne": "{{$randomFirstName}}",
+    "firstNameCoupleTwo": "{{$randomFirstName}}",
+    "created_at": "{{$isoTimestamp}}",
+    "email": "{{$randomEmail}}",
     "emailVerified": false,
-    "password": "securePassword123!"
+    "password": "{{$randomPassword}}"
   }
   
 }
