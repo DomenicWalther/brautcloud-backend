@@ -1,0 +1,15 @@
+meta {
+  name: Images::GetAllImagesByEventID
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:8080/image/3
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
