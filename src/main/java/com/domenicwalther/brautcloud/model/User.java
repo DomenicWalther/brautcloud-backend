@@ -1,4 +1,4 @@
-package com.domenicwalther.brautcloud;
+package com.domenicwalther.brautcloud.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Spring:Run" type="ShConfigurationType">
-    <module name="doppler-spring-boot" />
-    <option name="SCRIPT_TEXT" value=" doppler run -- ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments=&quot;-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:5005&quot;" />
+    <option name="SCRIPT_TEXT" value="doppler run -- ./mvnw spring-boot:run" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />

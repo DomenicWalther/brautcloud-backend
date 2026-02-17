@@ -1,4 +1,4 @@
-package com.domenicwalther.brautcloud;
+package com.domenicwalther.brautcloud.model;
 
 import jakarta.persistence.Column;
 import lombok.Data;

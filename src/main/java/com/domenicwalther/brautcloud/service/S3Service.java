@@ -1,4 +1,4 @@
-package com.domenicwalther.brautcloud;
+package com.domenicwalther.brautcloud.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,5 +1,6 @@
-package com.domenicwalther.brautcloud;
+package com.domenicwalther.brautcloud.controller;
 
+import com.domenicwalther.brautcloud.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,4 +29,5 @@ public class ImageController {
             return ResponseEntity.status(500).body("Uploaded failed: " + e.getMessage());
         }
     }
+
 }
