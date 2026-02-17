@@ -12,15 +12,13 @@ post {
 
 body:json {
   {
-    "id": "event-{{$randomUUID}}",
-    "user_id": "user-1234255",
-    "event_name": "{{$randomFirstName}} & {{$randomFirstName}}",
-    "event_location": "{{$randomBsNoun}}",
-    "event_date": "{{$randomDateFuture}}",
+    "userId": 1,
+    "eventName": "{{$randomFirstName}} & {{$randomFirstName}}",
+    "location": "{{$randomBsNoun}}",
+    "date": "{{$randomDateFuture}}",
     "email": "{{$randomEmail}}",
     "password": "{{$randomEmail}}",
-    "qr_code": "QR-CODE-PLACEHOLDER",
-    "created_at": "{{$isoTimestamp}}"
+    "qr_code": "QR-CODE-PLACEHOLDER"
   }
   
 }
