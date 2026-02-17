@@ -2,12 +2,10 @@
 
 > Backend for Brautcloud, a Service where guest can share the pictures they took at a Wedding with the bride & groom. 
 
----
 ## Overview
 This is a backend project built with **Java, SpringBoot, AiSto and Postgres**. 
 Currently it's in early development.
 
---- 
 
 ## Getting started
 ```bash 
@@ -38,5 +36,3 @@ Add these variables in your Doppler project/config:
 > These variables are used by the AWS SDK in Java for interacting with the local aistore S3 server and by your backend for database connections.
 
 Included in this Project is a Spring_Run.run.xml which automatically starts Doppler & Spring Boot.
-
-At the current time, the Docker Compose Spring Library is disabled, make sure to manually docker compose up and have a aistor container running.
