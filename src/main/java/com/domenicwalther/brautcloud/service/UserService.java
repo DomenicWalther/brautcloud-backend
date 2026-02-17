@@ -1,8 +1,11 @@
 package com.domenicwalther.brautcloud.service;
 
+import com.domenicwalther.brautcloud.dto.UserResponse;
 import com.domenicwalther.brautcloud.model.User;
 import com.domenicwalther.brautcloud.repository.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -17,7 +20,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Iterable<User> allUsers() {
-        return userRepository.findAll();
+    public List<UserResponse> allUsers() {
+        return userRepository.findAll().stream().map(UserResponse::fromUser).toList();
     }
+
 }
