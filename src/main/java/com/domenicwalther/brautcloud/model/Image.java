@@ -4,35 +4,25 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
-@Table(name = "events")
-public class Event {
+@Table(name = "images")
+public class Image {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@JoinColumn(name = "event_id")
+	private Event event;
 
-	private String eventName;
+	private String imageKey;
 
-	private String location;
-
-	private LocalDateTime date;
-
-	private String password;
-
-	private String qrCode;
+	private boolean isVisible;
 
 	@Column(insertable = false, updatable = false)
 	private LocalDateTime createdAt;
-
-	@OneToMany(mappedBy = "event")
-	private List<Image> images;
 
 }
