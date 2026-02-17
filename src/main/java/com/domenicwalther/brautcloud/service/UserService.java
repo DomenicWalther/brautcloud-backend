@@ -1,22 +1,23 @@
 package com.domenicwalther.brautcloud.service;
 
 import com.domenicwalther.brautcloud.model.User;
+import com.domenicwalther.brautcloud.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class UserService {
 
-    Map<String, User> users = new HashMap<>();
+    private final UserRepository userRepository;
 
-    public void addUser(String id, User user) {
-        users.put(id, user);
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
     }
 
-    public Collection<User> allUsers() {
-        return users.values();
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
+    public Iterable<User> allUsers() {
+        return userRepository.findAll();
     }
 }

@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class UserController {
@@ -22,12 +20,12 @@ public class UserController {
 
 
     @GetMapping("/users")
-    public Collection<User> getUsers(){
+    public Iterable<User> getUsers(){
         return userService.allUsers();
     }
 
     @PostMapping("/users")
     public void addUser(@RequestBody User user){
-        userService.addUser(user.getId(), user);
+        userService.addUser(user);
     }
 }
