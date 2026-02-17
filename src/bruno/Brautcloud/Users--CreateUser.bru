@@ -12,11 +12,9 @@ post {
 
 body:json {
   {
-    "id": "{{$randomUUID}}",
     "lastName": "{{$randomLastName}}",
     "firstNameCoupleOne": "{{$randomFirstName}}",
     "firstNameCoupleTwo": "{{$randomFirstName}}",
-    "created_at": "{{$isoTimestamp}}",
     "email": "{{$randomEmail}}",
     "emailVerified": false,
     "password": "{{$randomPassword}}"
