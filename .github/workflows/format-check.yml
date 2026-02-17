@@ -22,4 +22,4 @@ jobs:
           cache: maven
 
       - name: Run and check formatting
-        run: ./mvnw -B verify
+        run: ./mvnw -B spring-javaformat:validate
