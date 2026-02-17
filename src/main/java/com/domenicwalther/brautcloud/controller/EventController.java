@@ -1,13 +1,14 @@
 package com.domenicwalther.brautcloud.controller;
 
-import com.domenicwalther.brautcloud.model.Event;
+import com.domenicwalther.brautcloud.dto.EventRequest;
+import com.domenicwalther.brautcloud.dto.EventResponse;
 import com.domenicwalther.brautcloud.service.EventService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
+import java.util.List;
 
 @RestController
 public class EventController {
@@ -19,13 +20,13 @@ public class EventController {
     }
 
     @GetMapping("/events")
-    public Collection<Event> getEvents(){
+    public List<EventResponse> getEvents(){
         return eventService.getEvents();
     }
 
     @PostMapping("/events")
-    public void addEvent(@RequestBody Event event){
-        eventService.addEvent(event);
+    public void addEvent(@RequestBody EventRequest request){
+        eventService.addEvent(request);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.domenicwalther.brautcloud.controller;
 
+import com.domenicwalther.brautcloud.dto.UserResponse;
 import com.domenicwalther.brautcloud.model.User;
 import com.domenicwalther.brautcloud.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -20,7 +22,7 @@ public class UserController {
 
 
     @GetMapping("/users")
-    public Iterable<User> getUsers(){
+    public List<UserResponse> getUsers(){
         return userService.allUsers();
     }
 
