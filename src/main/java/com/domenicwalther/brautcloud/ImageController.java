@@ -1,7 +1,5 @@
-package com.domenicwalther.brautcloud.config;
+package com.domenicwalther.brautcloud;
 
-import com.domenicwalther.brautcloud.S3Service;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
