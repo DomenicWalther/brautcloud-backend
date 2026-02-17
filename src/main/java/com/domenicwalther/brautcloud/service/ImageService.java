@@ -11,21 +11,21 @@ import java.io.File;
 @Service
 public class ImageService {
 
-    @Autowired
-    private S3Service s3Service;
+	@Autowired
+	private S3Service s3Service;
 
+	public ResponseEntity<String> uploadFile(MultipartFile file) {
+		try {
+			File tempFile = File.createTempFile("upload-", file.getOriginalFilename());
+			file.transferTo(tempFile);
 
-    public ResponseEntity<String> uploadFile(MultipartFile file){
-        try {
-            File tempFile = File.createTempFile("upload-", file.getOriginalFilename());
-            file.transferTo(tempFile);
+			s3Service.uploadFile(file.getOriginalFilename(), tempFile);
 
-            s3Service.uploadFile(file.getOriginalFilename(), tempFile);
-
-            return ResponseEntity.ok("File uploaded successfully");
-        } catch (Exception e){
-            return ResponseEntity.status(500).body("Uploaded failed: " + e.getMessage());
-        }
-    }
+			return ResponseEntity.ok("File uploaded successfully");
+		}
+		catch (Exception e) {
+			return ResponseEntity.status(500).body("Uploaded failed: " + e.getMessage());
+		}
+	}
 
 }

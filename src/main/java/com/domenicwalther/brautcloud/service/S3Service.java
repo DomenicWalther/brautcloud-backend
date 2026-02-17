@@ -11,19 +11,16 @@ import java.io.File;
 @Service
 public class S3Service {
 
-    @Autowired
-    private S3Client s3Client;
+	@Autowired
+	private S3Client s3Client;
 
-    @Value("${aws.s3.bucket}")
-    private String bucketName;
+	@Value("${aws.s3.bucket}")
+	private String bucketName;
 
-    public void uploadFile(String key, File file){
-        PutObjectRequest request = PutObjectRequest.builder()
-                .bucket(bucketName)
-                .key(key)
-                .build();
+	public void uploadFile(String key, File file) {
+		PutObjectRequest request = PutObjectRequest.builder().bucket(bucketName).key(key).build();
 
-        s3Client.putObject(request, file.toPath());
-    }
+		s3Client.putObject(request, file.toPath());
+	}
 
 }

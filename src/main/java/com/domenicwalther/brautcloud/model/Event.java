@@ -7,26 +7,28 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name="events")
+@Table(name = "events")
 public class Event {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-    private String eventName;
+	private String eventName;
 
-    private String location;
+	private String location;
 
-    private LocalDateTime date;
+	private LocalDateTime date;
 
-    private String password;
-    private String qrCode;
+	private String password;
 
-    @Column(insertable = false, updatable = false)
-    private LocalDateTime createdAt;
+	private String qrCode;
+
+	@Column(insertable = false, updatable = false)
+	private LocalDateTime createdAt;
+
 }

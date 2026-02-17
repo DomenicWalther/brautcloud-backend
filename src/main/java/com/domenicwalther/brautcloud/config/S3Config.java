@@ -12,27 +12,28 @@ import java.net.URI;
 
 @Configuration
 public class S3Config {
-    @Value("${aws.accessKeyId}")
-    private String accessKeyId;
 
-    @Value("${aws.secretAccessKey}")
-    private String secretAccessKey;
+	@Value("${aws.accessKeyId}")
+	private String accessKeyId;
 
-    @Value("${aws.s3.region}")
-    private String region;
+	@Value("${aws.secretAccessKey}")
+	private String secretAccessKey;
 
-    @Value("${aws.s3.endpoint}")
-    private String s3Endpoint;
+	@Value("${aws.s3.region}")
+	private String region;
 
-    @Bean
-    public S3Client s3Client(){
-        return S3Client.builder()
-                .endpointOverride(URI.create(s3Endpoint))
-                .region(Region.of(region))
-                .credentialsProvider(StaticCredentialsProvider.create(
-                        AwsBasicCredentials.create(accessKeyId,secretAccessKey)
-                ))
-                .forcePathStyle(true)
-                .build();
-    }
+	@Value("${aws.s3.endpoint}")
+	private String s3Endpoint;
+
+	@Bean
+	public S3Client s3Client() {
+		return S3Client.builder()
+			.endpointOverride(URI.create(s3Endpoint))
+			.region(Region.of(region))
+			.credentialsProvider(
+					StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKeyId, secretAccessKey)))
+			.forcePathStyle(true)
+			.build();
+	}
+
 }

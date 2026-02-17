@@ -14,17 +14,16 @@ import java.io.File;
 @RestController
 public class ImageController {
 
-    ImageService imageService;
+	ImageService imageService;
 
-    public ImageController(ImageService imageService){
-        this.imageService = imageService;
-    }
+	public ImageController(ImageService imageService) {
+		this.imageService = imageService;
+	}
 
+	@PostMapping("/upload")
+	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+		return imageService.uploadFile(file);
 
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file")MultipartFile file){
-        return imageService.uploadFile(file);
-
-    }
+	}
 
 }

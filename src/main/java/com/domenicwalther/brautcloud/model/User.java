@@ -8,26 +8,29 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String lastName;
+	private String lastName;
 
-    private String firstNameCoupleOne;
+	private String firstNameCoupleOne;
 
-    private String firstNameCoupleTwo;
+	private String firstNameCoupleTwo;
 
-    @Column(insertable = false, updatable = false)
-    private LocalDateTime createdAt;
+	@Column(insertable = false, updatable = false)
+	private LocalDateTime createdAt;
 
-    private String email;
-    private boolean emailVerified;
-    private String password;
+	private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Event> events;
+	private boolean emailVerified;
+
+	private String password;
+
+	@OneToMany(mappedBy = "user")
+	private List<Event> events;
+
 }

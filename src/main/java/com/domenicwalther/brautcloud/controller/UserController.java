@@ -14,20 +14,20 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserService userService;
+	private final UserService userService;
 
-    public UserController(UserService userService){
-        this.userService = userService;
-    }
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
 
+	@GetMapping("/users")
+	public List<UserResponse> getUsers() {
+		return userService.allUsers();
+	}
 
-    @GetMapping("/users")
-    public List<UserResponse> getUsers(){
-        return userService.allUsers();
-    }
+	@PostMapping("/users")
+	public void addUser(@RequestBody User user) {
+		userService.addUser(user);
+	}
 
-    @PostMapping("/users")
-    public void addUser(@RequestBody User user){
-        userService.addUser(user);
-    }
 }

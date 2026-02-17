@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+	private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
-    public void addUser(User user) {
-        userRepository.save(user);
-    }
+	public void addUser(User user) {
+		userRepository.save(user);
+	}
 
-    public List<UserResponse> allUsers() {
-        return userRepository.findAll().stream().map(UserResponse::fromUser).toList();
-    }
+	public List<UserResponse> allUsers() {
+		return userRepository.findAll().stream().map(UserResponse::fromUser).toList();
+	}
 
 }
