@@ -1,0 +1,21 @@
+meta {
+  name: Images::Upload
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8080/upload
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(/home/denen/Pictures/Wallpapers/thumb-1920-1362745.png)
+  eventId: 3
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
