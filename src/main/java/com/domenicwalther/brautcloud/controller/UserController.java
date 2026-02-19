@@ -3,15 +3,13 @@ package com.domenicwalther.brautcloud.controller;
 import com.domenicwalther.brautcloud.dto.UserResponse;
 import com.domenicwalther.brautcloud.model.User;
 import com.domenicwalther.brautcloud.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/users")
 public class UserController {
 
 	private final UserService userService;
@@ -20,12 +18,12 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@GetMapping("/users")
+	@GetMapping
 	public List<UserResponse> getUsers() {
 		return userService.allUsers();
 	}
 
-	@PostMapping("/users")
+	@PostMapping
 	public void addUser(@RequestBody User user) {
 		userService.addUser(user);
 	}
