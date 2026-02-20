@@ -37,4 +37,9 @@ public class ImageController {
 		return imageService.getAllImagesByEventID(eventID);
 	}
 
+	@DeleteMapping("{imageID}")
+	public ResponseEntity<String> deleteFile(@PathVariable Long imageID) {
+		return imageService.deleteImageByImageID(imageID);
+	}
+
 }
