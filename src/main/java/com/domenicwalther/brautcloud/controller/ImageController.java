@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.util.List;
 
+@RequestMapping("/api/image")
 @RestController
 public class ImageController {
 
@@ -23,7 +24,7 @@ public class ImageController {
 		this.imageService = imageService;
 	}
 
-	@PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> uploadFile(@RequestPart("file") MultipartFile file,
 			@RequestPart("eventId") String eventId) {
 		ImageRequest request = new ImageRequest(Long.parseLong(eventId), file);
@@ -31,7 +32,7 @@ public class ImageController {
 
 	}
 
-	@GetMapping("/image/{eventID}")
+	@GetMapping("{eventID}")
 	public List<ImageResponse> getAllImagesByEventID(@PathVariable Long eventID) {
 		return imageService.getAllImagesByEventID(eventID);
 	}
