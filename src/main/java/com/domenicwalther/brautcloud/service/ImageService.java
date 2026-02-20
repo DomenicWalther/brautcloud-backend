@@ -8,6 +8,7 @@ import com.domenicwalther.brautcloud.repository.EventRepository;
 import com.domenicwalther.brautcloud.repository.ImageRepository;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,6 +58,14 @@ public class ImageService {
 
 	public List<ImageResponse> getAllImagesByEventID(Long eventID) {
 		return imageRepository.findByEventId(eventID).stream().map(ImageResponse::fromImage).toList();
+	}
+
+	public ResponseEntity<String> deleteImageByImageID(Long imageID) {
+		Image image = imageRepository.findById(imageID).orElseThrow(() -> new RuntimeException("Event not found"));
+		imageRepository.deleteById(imageID);
+		String imageKey = image.getImageKey();
+		s3Service.deleteFile(imageKey);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
