@@ -1,11 +1,11 @@
 meta {
-  name: Events::GetAllEvents
+  name: Images::DeleteImageByImageID
   type: http
-  seq: 3
+  seq: 7
 }
 
-get {
-  url: http://localhost:8080/api/events
+delete {
+  url: http://localhost:8080/api/image/2
   body: none
   auth: inherit
 }
