@@ -30,10 +30,12 @@ public class User {
 	@Column(insertable = false, updatable = false)
 	private LocalDateTime createdAt;
 
+	@Column(unique = true, nullable = false)
 	private String email;
 
 	private boolean emailVerified;
 
+	@Column(nullable=false)
 	private String password;
 
 	@OneToMany(mappedBy = "user")
