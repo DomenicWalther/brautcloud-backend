@@ -16,10 +16,6 @@ public class UserService {
 		this.userRepository = userRepository;
 	}
 
-	public void addUser(User user) {
-		userRepository.save(user);
-	}
-
 	public List<UserResponse> allUsers() {
 		return userRepository.findAll().stream().map(UserResponse::fromUser).toList();
 	}

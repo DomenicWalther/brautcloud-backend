@@ -35,8 +35,10 @@ public class User {
 
 	private boolean emailVerified;
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String password;
+
+	private String role = "ROLE_USER";
 
 	@OneToMany(mappedBy = "user")
 	private List<Event> events;

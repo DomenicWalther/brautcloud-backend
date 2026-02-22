@@ -1,13 +1,14 @@
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
-  last_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255),
   first_name_couple_one VARCHAR(255),
   first_name_couple_two VARCHAR(255),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   email VARCHAR(255) UNIQUE NOT NULL,
   email_verified BOOLEAN DEFAULT FALSE,
-  password VARCHAR(255) NOT NULL
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(50) DEFAULT 'ROLE_USER' NOT NULL
 );
 -- Create events table
 CREATE TABLE IF NOT EXISTS events (
