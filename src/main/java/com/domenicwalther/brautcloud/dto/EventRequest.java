@@ -1,23 +1,22 @@
 package com.domenicwalther.brautcloud.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
-public class EventRequest {
+public record EventRequest(
 
-	private Long userId;
+        Long userId,
 
-	private String eventName;
+        String eventName,
 
-	private String location;
+        String location,
 
-	private LocalDateTime date;
+        LocalDateTime date,
 
-	private String password;
+        String password,
 
-	private String qrCode;
+        String qrCode
+) {
+
 
 }

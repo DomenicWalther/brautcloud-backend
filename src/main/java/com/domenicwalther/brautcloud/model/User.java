@@ -1,6 +1,8 @@
 package com.domenicwalther.brautcloud.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,11 +32,13 @@ public class User {
 	@Column(insertable = false, updatable = false)
 	private LocalDateTime createdAt;
 
+	@Email
 	@Column(unique = true, nullable = false)
 	private String email;
 
 	private boolean emailVerified;
 
+	@Size(min = 8, message = "Password must be at least 8 characters long")
 	@Column(nullable = false)
 	private String password;
 
