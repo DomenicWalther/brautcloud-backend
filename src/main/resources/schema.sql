@@ -32,3 +32,12 @@ CREATE TABLE IF NOT EXISTS images (
   event_id INTEGER NOT NULL,
   FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS refresh_tokens (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL UNIQUE,
+    token VARCHAR(255) NOT NULL UNIQUE,
+    expires_at TIMESTAMP NOT NULL,
+
+    CONSTRAINT fk_refresh_tokens_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
